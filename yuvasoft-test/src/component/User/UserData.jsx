@@ -8,8 +8,11 @@ const dispatch = useDispatch()
 const navigate = useNavigate()
     const {name , email ,gender, hobbies , status} = item || {}
 const handleDelete =()=>{
-    window.confirm('Are You Sure')
-    dispatch(userRemove(item.id))
+  const userConfirmed = window.confirm('Are You Sure');
+  
+  if (userConfirmed) {
+    dispatch(userRemove(item.id));
+  }
 }
 const handleEdit =()=>{
     navigate('/adduserform')
